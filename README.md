@@ -103,7 +103,7 @@ zig / d / c ?
 12) llvm
 
 
-##  запуск сервисов (на выбор) - хост/порт на всех приложениях 0.0.0.0 и 3200
+## service starting, port for each application 0.0.0.0 и 3200
 
 
 ### Sanic - 12500 - 15275.80 rps
@@ -129,7 +129,7 @@ docker-compose -f api_fastapi.yml up
 ```
 
 
-## тестирование RPS:
+## testing RPS:
 
 ```
 curl http://0.0.0.0:3200/test?test=test
@@ -139,7 +139,7 @@ docker run --network host --rm jordi/ab -k -c 100 -n 10000 http://0.0.0.0:3200/t
 
 (без принтов)
 
-# Таблица 1
+# table 1
 
 kafka =                                           1 mln (+ replics) x 500kb        (gRPC)
 📌 clickhouse batch insert                        500k query/s, DB, logs (x60 vs postgres)
@@ -174,7 +174,7 @@ actix in docker -     33383
 fiber in docker -     30000
 nginx (1-2)       -     15902-16798.91
 
-# Таблица 2
+# table 2
 
 min - max (5 kb text)
 polkadot.js (text/json) 30000 (1) -     66153(47160)            (2-4) + https://github.com/lukeed/polkadot
@@ -232,7 +232,7 @@ express.js                          6200            7200
 blacksheep -                        4506.06 -       5622.84 не реплицируется (больше 8000)
 fastapi -                           2990 (3300) -   4290.38 не реплицируется (больше 8000)
 
-с репликами
+### with replication
 📌 pm2/cluster (2-3) polkadot.js55947    66153.29(46371.22) (good) text / json
 pm2/cluster (3) polkadot.js     52000      66153.29
 pm2/cluster (8) polkadot.js     45311.84 - 50790.42
@@ -610,7 +610,7 @@ docker service rm [tab]
 ``` -->
 
 
-## тесты
+## tests
 ```
 docker run --network host --rm jordi/ab -k -c 100 -n 10000 http://0.0.0.0:3200/test?test=test
 docker run --network host --rm jordi/ab -k -c 100 -n 100000 http://0.0.0.0:3200/test?test=test
@@ -618,7 +618,7 @@ docker run --network host --rm jordi/ab -k -c 100 -n 400000 http://0.0.0.0:3200/
 docker run --network host --rm jordi/ab -k -c 100 -n 500000 http://localhost:3200/test?test=test
 ```
 
-## завершение
+## conclusion
 ## swarm exit
 ```
 docker swarm leave --force

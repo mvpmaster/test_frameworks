@@ -1,0 +1,35 @@
+FROM sbtscala/scala-sbt:eclipse-temurin-17.0.4_1.7.1_3.2.0
+# FROM lightbend/akka-sample-cluster-docker-compose-scala:latest
+
+# FROM openjdk:20
+# ARG SBT_VERSION="1.7.1"
+
+#RUN apt-get update && apt-get install -y wget
+# RUN dn search wget
+# RUN yum install -y wget
+# RUN apk update && apk add wget
+
+# Install Scala
+# ENV SCALA_VERSION 3.2.0
+# ENV SCALA_DEB http://www.scala-lang.org/files/archive/scala-$SCALA_VERSION.deb
+
+# RUN \
+#     wget --quiet --output-document=scala.deb $SCALA_DEB && \
+#     dpkg -i scala.deb && \
+#     rm -f *.deb
+
+# # Install Scala Build Tool sbt
+# RUN apt-get install -y --force-yes sbt
+
+#https://github.com/sbt/docker-sbt
+
+WORKDIR /app
+
+COPY ./ .
+RUN sbt update
+
+COPY ./build.sbt .
+RUN sbt update
+
+EXPOSE 8080
+ENTRYPOINT ["sbt", "run"]

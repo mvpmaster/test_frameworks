@@ -1,0 +1,30 @@
+[package]
+name = "superapp"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+actix-web = "4"
+#rand = "0.8.5"
+serde = { version = "1.0.147", features = ["derive"] }
+serde_json = "1.0"
+lazy_static = "1.4.0"
+# rustc-serialize = "0.3" # no longer supported
+json = "*"
+# pikkr = "0.16.0"
+# json
+# tokio = { version = "1", features = ["full"] }
+# warp = "0.3"
+#futures = "0.3"
+# regex = "1"
+
+# cargo bloat --release --carets
+# https://github.com/johnthagen/min-sized-rust
+
+[profile.release]
+strip = true
+opt-level = "s"
+lto = true # link time opt
+#codepen-units = 1 # maximize size reduction

@@ -1,0 +1,28 @@
+
+#FROM node:16.14.0-alpine3.15
+#FROM node:16.14.0
+# FROM node:19.0.1-bullseye-slim
+# FROM node:16.18-alpine3.15
+FROM node:16.18-bullseye-slim
+
+RUN pwd && ls
+
+WORKDIR /app
+COPY . .
+
+RUN npm install
+#--no-binary=:all: --no-deps --ignore-installed
+
+# RUN adduser --disabled-password --gecos '' user
+# USER user
+
+EXPOSE 3000
+
+# hyper express
+CMD ["node", "index2.js"]
+
+#ENTRYPOINT ["python3", "/app/api_sanic/api.py"]
+#CMD ["python3", "api_sanic/api.py"]
+
+#ENTRYPOINT ["python"]
+#CMD ["main.py"]

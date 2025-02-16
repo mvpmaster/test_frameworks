@@ -1,0 +1,9 @@
+FROM clojure:latest
+
+WORKDIR /app
+COPY ./project.clj .
+RUN lein uberjar
+
+
+EXPOSE 8080
+ENTRYPOINT ["lein", "run"]

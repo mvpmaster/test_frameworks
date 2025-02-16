@@ -1,0 +1,64 @@
+version: '3'
+services:
+
+# api
+  test_sanic_api:
+    image: swarm_sanic_api
+    build:
+      context: ./apps/py
+      dockerfile: ../../dockers/python/Dockerfile_swarm_sanic
+    # env_file:
+    #   - .env
+    #   - ./apps/.env
+    #command: /bin/bash -c "python -m pip install -r /app/requirements.txt --no-cache-dir && python api.py"
+    #command: /bin/bash -c "python api_sanic/api.py"
+    restart: unless-stopped
+    ports:
+      - "3200:3000"
+#    depends_on:
+#      - mysql
+#      - postgres
+    # working_dir: /app
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "1"
+    volumes:
+      - ./apps/py:/app
+    # networks:
+    #   - app-network
+    #   # - extarnal-service_network
+    
+    deploy:
+    # 3 реплики лучше 2, на 4х ядрах (3-5 ок)
+     replicas: 3
+     restart_policy:
+       max_attempts: 3
+       condition: on-failure       
+     update_config:
+       parallelism: 3
+       delay: 10s
+    # повышает производительность при 3х репликах + стабильность, выше не влияет
+     resources:
+       limits:
+         cpus: '2'
+         memory: 1024M
+         #kernel-memory: 256M
+         #memory-swappiness: 5
+         #cpu-period: 50000
+         #cpu-quota: 120000
+       reservations:
+         cpus: '0.5'
+         memory: 256M
+
+# networks:
+#   app-network:
+#     driver: bridge
+    #external: true
+  # extarnal-service_network:
+  #   external:
+  #     name: tags_app-network
+# volumes:
+#   dbdata:
+#     driver: local

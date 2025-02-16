@@ -1,0 +1,26 @@
+
+FROM node:16.14.0
+#FROM node:18.12.1-buster
+#FROM node:16.18-alpine3.15
+#FROM node:16.18-alpine3.15
+
+RUN pwd && ls
+
+WORKDIR /app
+COPY . .
+
+RUN npm install
+#--no-binary=:all: --no-deps --ignore-installed
+
+# RUN adduser --disabled-password --gecos '' user
+# USER user
+
+EXPOSE 3000
+
+CMD ["node", "index3.js"]
+
+#ENTRYPOINT ["python3", "/app/api_sanic/api.py"]
+#CMD ["python3", "api_sanic/api.py"]
+
+#ENTRYPOINT ["python"]
+#CMD ["main.py"]

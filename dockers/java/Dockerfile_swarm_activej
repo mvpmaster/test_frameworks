@@ -1,0 +1,12 @@
+
+FROM maven:3.8.6-openjdk-18
+
+WORKDIR /app
+
+COPY ./ .
+RUN mvn package
+
+RUN mvn --version
+
+EXPOSE 8080
+CMD ["mvn", "compile", "exec:java", '-Dexec.mainClass="org.example.WebApp"']

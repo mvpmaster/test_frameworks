@@ -1,0 +1,23 @@
+
+
+version: '3'
+services:
+  nginx:
+    container_name: nginx
+    #image: nginx:1.21.6-perl
+    #image: nginx:1.23.2-perl
+    #image: nginx:1.23.2-alpine-perl
+    image: nginx:1.23.2-alpine
+    restart: unless-stopped
+    volumes:
+      - ./dockers/nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./dockers/nginx/conf.d:/etc/nginx/conf.d
+      # - ./dockers/nginx/ssl:/etc/nginx/ssl
+      # - ./logs:/var/log/nginx
+    tmpfs:
+      - /var/cache/nginx
+      - /tmp
+    # ports:
+    #   - "80:80"
+    #   - "443:443"
+    network_mode: host

@@ -1,0 +1,651 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "5dec768c578a4972adfda4bd03abf034",
+    "packages": [
+        {
+            "name": "laylatichy/nano",
+            "version": "3.0.19",
+            "source": {
+                "type": "git",
+                "url": "git@gitlab.com:x.laylatichy.x/nano.git",
+                "reference": "9e14b6195fa3bfec01895670d50f61598f852946"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://gitlab.com/api/v4/projects/x%2Elaylatichy%2Ex%2Fnano/repository/archive.zip?sha=9e14b6195fa3bfec01895670d50f61598f852946",
+                "reference": "9e14b6195fa3bfec01895670d50f61598f852946",
+                "shasum": ""
+            },
+            "require": {
+                "laylatichy/nano-core-cache": "3.0.22",
+                "laylatichy/nano-core-config": "3.0.20",
+                "laylatichy/nano-core-exception": "3.0.18",
+                "laylatichy/nano-core-headers": "3.0.20",
+                "laylatichy/nano-core-httpcode": "3.0.19",
+                "laylatichy/nano-core-middleware": "3.0.33",
+                "laylatichy/nano-core-request": "3.0.18",
+                "laylatichy/nano-core-response": "3.0.19",
+                "laylatichy/nano-core-router": "3.0.22",
+                "php": ">=8.1",
+                "workerman/workerman": "4.1.4"
+            },
+            "require-dev": {
+                "codeception/codeception": "5.0.3",
+                "codeception/module-asserts": "3.0.0",
+                "codeception/module-phpbrowser": "3.0.0",
+                "codeception/module-rest": "3.3.0",
+                "friendsofphp/php-cs-fixer": "3.12.0",
+                "jetbrains/phpstorm-attributes": "1.0",
+                "phpstan/phpstan": "1.8.11",
+                "phpstan/phpstan-phpunit": "1.2.2",
+                "phpunit/phpunit": "9.5.26"
+            },
+            "suggest": {
+                "ext-event": "For better performance."
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "laylatichy\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Layla Tichy",
+                    "email": "contact@laylatichy.com"
+                }
+            ],
+            "description": "blazing fast REST API framework based on workerman and fast-route",
+            "homepage": "https://gitlab.com/x.laylatichy.x/nano",
+            "keywords": [
+                "api",
+                "layla tichy",
+                "laylatichy",
+                "nano",
+                "rest",
+                "workerman"
+            ],
+            "time": "2022-10-31T01:28:07+00:00"
+        },
+        {
+            "name": "laylatichy/nano-core-cache",
+            "version": "3.0.22",
+            "source": {
+                "type": "git",
+                "url": "git@gitlab.com:nano8/core/cache.git",
+                "reference": "a0a46c953f96b23526a25a5d24ce4c04ca86c104"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://gitlab.com/api/v4/projects/nano8%2Fcore%2Fcache/repository/archive.zip?sha=a0a46c953f96b23526a25a5d24ce4c04ca86c104",
+                "reference": "a0a46c953f96b23526a25a5d24ce4c04ca86c104",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.1"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "3.12.0",
+                "jetbrains/phpstorm-attributes": "1.0",
+                "phpstan/phpstan": "1.8.9",
+                "phpstan/phpstan-phpunit": "1.1.1",
+                "phpunit/phpunit": "9.5.25"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "laylatichy\\nano\\core\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Layla Tichy",
+                    "email": "contact@laylatichy.com"
+                }
+            ],
+            "description": "laylatichy/nano-core-cache",
+            "homepage": "https://gitlab.com/nano8/core/cache",
+            "time": "2022-10-16T09:24:13+00:00"
+        },
+        {
+            "name": "laylatichy/nano-core-config",
+            "version": "3.0.20",
+            "source": {
+                "type": "git",
+                "url": "git@gitlab.com:nano8/core/config.git",
+                "reference": "079d06427f98ba85420ade3f7b0e42c10bc6b96a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://gitlab.com/api/v4/projects/nano8%2Fcore%2Fconfig/repository/archive.zip?sha=079d06427f98ba85420ade3f7b0e42c10bc6b96a",
+                "reference": "079d06427f98ba85420ade3f7b0e42c10bc6b96a",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.1"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "3.12.0",
+                "jetbrains/phpstorm-attributes": "1.0",
+                "phpstan/phpstan": "1.8.9",
+                "phpstan/phpstan-phpunit": "1.1.1",
+                "phpunit/phpunit": "9.5.25"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "laylatichy\\nano\\core\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Layla Tichy",
+                    "email": "contact@laylatichy.com"
+                }
+            ],
+            "description": "laylatichy/nano-core-config",
+            "homepage": "https://gitlab.com/nano8/core/config",
+            "time": "2022-10-16T09:24:08+00:00"
+        },
+        {
+            "name": "laylatichy/nano-core-exception",
+            "version": "3.0.18",
+            "source": {
+                "type": "git",
+                "url": "git@gitlab.com:nano8/core/exception.git",
+                "reference": "8b6bbaac2971339be3a5d0a70f9c52d9c8715c13"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://gitlab.com/api/v4/projects/nano8%2Fcore%2Fexception/repository/archive.zip?sha=8b6bbaac2971339be3a5d0a70f9c52d9c8715c13",
+                "reference": "8b6bbaac2971339be3a5d0a70f9c52d9c8715c13",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.1"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "3.12.0",
+                "jetbrains/phpstorm-attributes": "1.0",
+                "phpstan/phpstan": "1.8.9",
+                "phpstan/phpstan-phpunit": "1.1.1",
+                "phpunit/phpunit": "9.5.25"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "laylatichy\\nano\\core\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Layla Tichy",
+                    "email": "contact@laylatichy.com"
+                }
+            ],
+            "description": "laylatichy/nano-core-exception",
+            "homepage": "https://gitlab.com/nano8/core/exception",
+            "time": "2022-10-16T09:24:11+00:00"
+        },
+        {
+            "name": "laylatichy/nano-core-headers",
+            "version": "3.0.20",
+            "source": {
+                "type": "git",
+                "url": "git@gitlab.com:nano8/core/headers.git",
+                "reference": "38916615b1e1c8e71ca597adc9c3ae1d0e918f82"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://gitlab.com/api/v4/projects/nano8%2Fcore%2Fheaders/repository/archive.zip?sha=38916615b1e1c8e71ca597adc9c3ae1d0e918f82",
+                "reference": "38916615b1e1c8e71ca597adc9c3ae1d0e918f82",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.1"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "3.12.0",
+                "jetbrains/phpstorm-attributes": "1.0",
+                "phpstan/phpstan": "1.8.9",
+                "phpstan/phpstan-phpunit": "1.1.1",
+                "phpunit/phpunit": "9.5.25"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "laylatichy\\nano\\core\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Layla Tichy",
+                    "email": "contact@laylatichy.com"
+                }
+            ],
+            "description": "laylatichy/nano-core-headers",
+            "homepage": "https://gitlab.com/nano8/core/headers",
+            "time": "2022-10-16T09:24:07+00:00"
+        },
+        {
+            "name": "laylatichy/nano-core-helpers",
+            "version": "3.0.25",
+            "source": {
+                "type": "git",
+                "url": "git@gitlab.com:nano8/core/helpers.git",
+                "reference": "2f0ec52318b384c40ddd793d078a0373cbde141f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://gitlab.com/api/v4/projects/nano8%2Fcore%2Fhelpers/repository/archive.zip?sha=2f0ec52318b384c40ddd793d078a0373cbde141f",
+                "reference": "2f0ec52318b384c40ddd793d078a0373cbde141f",
+                "shasum": ""
+            },
+            "require": {
+                "laylatichy/nano-core-middleware": "*",
+                "php": ">=8.1"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "3.12.0",
+                "jetbrains/phpstorm-attributes": "1.0",
+                "phpstan/phpstan": "1.8.9",
+                "phpstan/phpstan-phpunit": "1.1.1",
+                "phpunit/phpunit": "9.5.25"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "laylatichy\\nano\\core\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Layla Tichy",
+                    "email": "contact@laylatichy.com"
+                }
+            ],
+            "description": "laylatichy/nano-core-helpers",
+            "homepage": "https://gitlab.com/nano8/core/helpers",
+            "time": "2022-10-16T09:24:10+00:00"
+        },
+        {
+            "name": "laylatichy/nano-core-httpcode",
+            "version": "3.0.19",
+            "source": {
+                "type": "git",
+                "url": "git@gitlab.com:nano8/core/httpcode.git",
+                "reference": "1691c83de9217c718382c5052d8a1995540ef82e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://gitlab.com/api/v4/projects/nano8%2Fcore%2Fhttpcode/repository/archive.zip?sha=1691c83de9217c718382c5052d8a1995540ef82e",
+                "reference": "1691c83de9217c718382c5052d8a1995540ef82e",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.1"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "3.12.0",
+                "jetbrains/phpstorm-attributes": "1.0",
+                "phpstan/phpstan": "1.8.9",
+                "phpstan/phpstan-phpunit": "1.1.1",
+                "phpunit/phpunit": "9.5.25"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "laylatichy\\nano\\core\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Layla Tichy",
+                    "email": "contact@laylatichy.com"
+                }
+            ],
+            "description": "laylatichy/nano-core-httpcode",
+            "homepage": "https://gitlab.com/nano8/core/httpcode",
+            "time": "2022-10-16T09:24:10+00:00"
+        },
+        {
+            "name": "laylatichy/nano-core-middleware",
+            "version": "3.0.33",
+            "source": {
+                "type": "git",
+                "url": "git@gitlab.com:nano8/core/middleware.git",
+                "reference": "8e6baf01ffa198b79cfb387422577b4a39f4d14f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://gitlab.com/api/v4/projects/nano8%2Fcore%2Fmiddleware/repository/archive.zip?sha=8e6baf01ffa198b79cfb387422577b4a39f4d14f",
+                "reference": "8e6baf01ffa198b79cfb387422577b4a39f4d14f",
+                "shasum": ""
+            },
+            "require": {
+                "laylatichy/nano-core-helpers": "3.0.25",
+                "php": ">=8.1"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "3.12.0",
+                "jetbrains/phpstorm-attributes": "1.0",
+                "phpstan/phpstan": "1.8.9",
+                "phpstan/phpstan-phpunit": "1.1.1",
+                "phpunit/phpunit": "9.5.25"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "laylatichy\\nano\\core\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Layla Tichy",
+                    "email": "contact@laylatichy.com"
+                }
+            ],
+            "description": "laylatichy/nano-core-middleware",
+            "homepage": "https://gitlab.com/nano8/core/middleware",
+            "time": "2022-10-17T10:24:57+00:00"
+        },
+        {
+            "name": "laylatichy/nano-core-request",
+            "version": "3.0.18",
+            "source": {
+                "type": "git",
+                "url": "git@gitlab.com:nano8/core/request.git",
+                "reference": "4ed77b34bcd4b8030f0599c82744562e820b800b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://gitlab.com/api/v4/projects/nano8%2Fcore%2Frequest/repository/archive.zip?sha=4ed77b34bcd4b8030f0599c82744562e820b800b",
+                "reference": "4ed77b34bcd4b8030f0599c82744562e820b800b",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "php": ">=8.1",
+                "workerman/workerman": "*"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "3.12.0",
+                "jetbrains/phpstorm-attributes": "1.0",
+                "phpstan/phpstan": "1.8.9",
+                "phpstan/phpstan-phpunit": "1.1.1",
+                "phpunit/phpunit": "9.5.25"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "laylatichy\\nano\\core\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Layla Tichy",
+                    "email": "contact@laylatichy.com"
+                }
+            ],
+            "description": "laylatichy/nano-core-request",
+            "homepage": "https://gitlab.com/nano8/core/request",
+            "time": "2022-10-16T09:24:14+00:00"
+        },
+        {
+            "name": "laylatichy/nano-core-response",
+            "version": "3.0.19",
+            "source": {
+                "type": "git",
+                "url": "git@gitlab.com:nano8/core/response.git",
+                "reference": "34d8f9ab24f2c3f543c3aea8d43565553e9b56f2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://gitlab.com/api/v4/projects/nano8%2Fcore%2Fresponse/repository/archive.zip?sha=34d8f9ab24f2c3f543c3aea8d43565553e9b56f2",
+                "reference": "34d8f9ab24f2c3f543c3aea8d43565553e9b56f2",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "laylatichy/nano-core-exception": "*",
+                "laylatichy/nano-core-httpcode": "*",
+                "php": ">=8.1",
+                "workerman/workerman": "*"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "3.12.0",
+                "jetbrains/phpstorm-attributes": "1.0",
+                "phpstan/phpstan": "1.8.9",
+                "phpstan/phpstan-phpunit": "1.1.1",
+                "phpunit/phpunit": "9.5.25"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "laylatichy\\nano\\core\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Layla Tichy",
+                    "email": "contact@laylatichy.com"
+                }
+            ],
+            "description": "laylatichy/nano-core-response",
+            "homepage": "https://gitlab.com/nano8/core/response",
+            "time": "2022-10-16T09:24:11+00:00"
+        },
+        {
+            "name": "laylatichy/nano-core-router",
+            "version": "3.0.22",
+            "source": {
+                "type": "git",
+                "url": "git@gitlab.com:nano8/core/router.git",
+                "reference": "bada63bdf4f2fa8505213d55802043b9996679df"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://gitlab.com/api/v4/projects/nano8%2Fcore%2Frouter/repository/archive.zip?sha=bada63bdf4f2fa8505213d55802043b9996679df",
+                "reference": "bada63bdf4f2fa8505213d55802043b9996679df",
+                "shasum": ""
+            },
+            "require": {
+                "laylatichy/nano-core-middleware": "*",
+                "nikic/fast-route": "1.3",
+                "php": ">=8.1"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "3.12.0",
+                "jetbrains/phpstorm-attributes": "1.0",
+                "phpstan/phpstan": "1.8.9",
+                "phpstan/phpstan-phpunit": "1.1.1",
+                "phpunit/phpunit": "9.5.25"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "laylatichy\\nano\\core\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Layla Tichy",
+                    "email": "contact@laylatichy.com"
+                }
+            ],
+            "description": "laylatichy/nano-core-router",
+            "homepage": "https://gitlab.com/nano8/core/router",
+            "time": "2022-10-16T09:24:04+00:00"
+        },
+        {
+            "name": "nikic/fast-route",
+            "version": "v1.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nikic/FastRoute.git",
+                "reference": "181d480e08d9476e61381e04a71b34dc0432e812"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nikic/FastRoute/zipball/181d480e08d9476e61381e04a71b34dc0432e812",
+                "reference": "181d480e08d9476e61381e04a71b34dc0432e812",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.8.35|~5.7"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "src/functions.php"
+                ],
+                "psr-4": {
+                    "FastRoute\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Nikita Popov",
+                    "email": "nikic@php.net"
+                }
+            ],
+            "description": "Fast request router for PHP",
+            "keywords": [
+                "router",
+                "routing"
+            ],
+            "support": {
+                "issues": "https://github.com/nikic/FastRoute/issues",
+                "source": "https://github.com/nikic/FastRoute/tree/master"
+            },
+            "time": "2018-02-13T20:26:39+00:00"
+        },
+        {
+            "name": "workerman/workerman",
+            "version": "v4.1.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/walkor/workerman.git",
+                "reference": "83e007acf936e2233ac92d7368b87716f2bae338"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/walkor/workerman/zipball/83e007acf936e2233ac92d7368b87716f2bae338",
+                "reference": "83e007acf936e2233ac92d7368b87716f2bae338",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.0"
+            },
+            "suggest": {
+                "ext-event": "For better performance. "
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Workerman\\": "./"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "walkor",
+                    "email": "walkor@workerman.net",
+                    "homepage": "http://www.workerman.net",
+                    "role": "Developer"
+                }
+            ],
+            "description": "An asynchronous event driven PHP framework for easily building fast, scalable network applications.",
+            "homepage": "http://www.workerman.net",
+            "keywords": [
+                "asynchronous",
+                "event-loop"
+            ],
+            "support": {
+                "email": "walkor@workerman.net",
+                "forum": "http://wenda.workerman.net/",
+                "issues": "https://github.com/walkor/workerman/issues",
+                "source": "https://github.com/walkor/workerman",
+                "wiki": "http://doc.workerman.net/"
+            },
+            "funding": [
+                {
+                    "url": "https://opencollective.com/workerman",
+                    "type": "open_collective"
+                },
+                {
+                    "url": "https://www.patreon.com/walkor",
+                    "type": "patreon"
+                }
+            ],
+            "time": "2022-10-09T11:33:14+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": [],
+    "plugin-api-version": "2.3.0"
+}

@@ -1,0 +1,13 @@
+**/venv
+**/target
+**/node_modules
+**/dist-newstylea
+**/vendor/
+**/__pycache__
+**/dbdata
+**/_.env**
+**/.globenv**
+**/dumps
+**/.~lock.**
+**/.idea**
+**/bin

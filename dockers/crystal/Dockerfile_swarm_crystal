@@ -1,0 +1,15 @@
+FROM crystallang/crystal
+
+WORKDIR /app
+
+COPY ./shard.yml .
+RUN shards
+
+COPY . .
+RUN crystal build main.cr
+
+RUN ls
+
+EXPOSE 8080
+#ENTRYPOINT ["/app/main"]
+CMD ["/app/main"]

@@ -1,0 +1,34 @@
+# https://hub.docker.com/_/microsoft-dotnet-sdk/
+#FROM mcr.microsoft.com/dotnet/aspnet:7.0
+ FROM mcr.microsoft.com/dotnet/sdk:7.0
+# FROM mcr.microsoft.com/dotnet/sdk:7.0
+
+WORKDIR /app
+
+RUN dotnet --version
+
+RUN wget https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
+RUN dpkg -i packages-microsoft-prod.deb
+RUN rm packages-microsoft-prod.deb
+
+# RUN apt-get update && \
+#     apt-get install -y dotnet-sdk-6.0
+
+RUN apt-get update && \
+    apt-get install -y aspnetcore-runtime-6.0
+
+COPY ./ .
+
+# RUN dotnet add package FastEndpoints
+
+# FastEndpoints
+EXPOSE 5111
+EXPOSE 7118
+# mvc
+EXPOSE 5173
+EXPOSE 7002
+EXPOSE 3000
+
+
+#CMD ["/app/bin/Debug/net6.0/MyWebApp"]
+CMD ["dotnet", "run"]

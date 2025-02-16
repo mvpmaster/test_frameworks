@@ -1,0 +1,24 @@
+FROM haskell:9.4.3-buster
+
+RUN cabal update
+
+WORKDIR /app
+
+COPY ./baseapp .
+RUN cabal build
+
+# before cache common libs
+
+COPY ./test.cabal .
+RUN ls
+RUN cabal build
+
+# before upd libs
+
+COPY . .
+RUN cabal build
+
+# rebuild app
+
+EXPOSE 3000
+ENTRYPOINT ["cabal", "run"]

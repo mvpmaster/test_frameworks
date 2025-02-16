@@ -1,0 +1,16 @@
+{
+  "dependencies": {
+    "@sifrr/server": "^0.0.9",
+    "0http": "^3.4.1",
+    "cluster": "^0.7.7",
+    "express": "^4.18.2",
+    "httpie": "^1.1.2",
+    "hyper-express": "^6.5.2",
+    "low-http-server": "^4.1.0",
+    "natural-framework": "^0.1.3",
+    "polkadot": "^1.0.0",
+    "rayo": "^1.3.10",
+    "restana": "^4.9.6",
+    "uWebSockets.js": "github:uNetworking/uWebSockets.js#v20.15.0"
+  }
+}

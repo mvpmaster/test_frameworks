@@ -1,0 +1,46 @@
+version: "3"
+services:
+
+services:
+
+  traefik:
+    image: traefik:2.9.4
+    container_name: traefik
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
+    # ports:
+    #   - 80:80
+    #   - 443:443 
+    volumes:
+      - /etc/localtime:/etc/localtime
+      #:ro
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - ./dockers/traefik/traefik.yml:/traefik.yml
+      - ./dockers/traefik/custom/:/custom/
+      #:ro
+    network_mode: host
+    labels:
+          - "traefik.enable=true"
+          - "traefik.http.routers.traefik.entrypoints=http"
+          - "traefik.http.routers.traefik.rule=Host(`traefik.localhost`)"
+          #- "traefik.http.routers.traefik.tls=true"
+          #- "traefik.http.routers.traefik.tls.certresolver=letsEncrypt"
+          - "traefik.http.routers.traefik.service=api@internal"
+          - "traefik.http.services.traefik-traefik.loadbalancer.server.port=888"
+          # - "traefik.http.routers.http_catchall.middlewares=error-catch,http-redirect"
+
+          #- "traefik.http.middlewares.traefik-auth.basicauth.users=admin:$$apr1$$vDSqkf.v$$GTJOtsd9CBiAFFnHTI2Ds1"
+          #- "traefik.http.routers.traefik.middlewares=traefik-auth"
+          - "traefik.mirror.percentage=50" 
+          - "traefik.http.middlewares.catch-all.errors.status=400-599"
+          - "traefik.http.middlewares.catch-all.errors.service=catch-all"
+          - "traefik.http.middlewares.catch-all.errors.query=/test"
+          #- "traefik.http.middlewares.maintenance-page.errors.query=/"
+          # - "traefik.http.middlewares.error-catch.errors.status=404,503,502"
+          # - "traefik.http.middlewares.error-catch.errors.service=error-redirect"
+          #- "traefik.http.middlewares.error-catch.errors.query=/"
+
+# networks:
+#   app-network:
+#     driver: bridge

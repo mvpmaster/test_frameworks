@@ -1,0 +1,121 @@
+
+
+version: '3'
+services:
+
+
+
+
+  fiber:
+    image: fiber
+    #container_name: swarm_test_swarm_api
+    restart: unless-stopped
+    build:
+      context: ./apps/otherlangs/go/fiber/superapp
+      args:
+        - GOFILE=cmd/
+      dockerfile: ../../../../../dockers/go/Dockerfile
+    # env_file:
+    #   - ./.env
+    #   # настройки приложения
+    #   - ./apps/.env
+    #command: /bin/sh -c "go build -mod=readonly -o bin/server ./cmd && ./bin/server"
+    ports:
+      - "3000:3000"
+    #volumes:
+      #- ./pkg:/go/pkg/
+      #- ./apps/otherlangs/go/fiber/superapp:/superapp
+    # depends_on:
+    #   - test_redis
+    #environment:
+    #   - PORT=5005
+    # networks:
+    #   - app-network
+    #network_mode: host
+    deploy:
+     replicas: 1
+     restart_policy:
+       max_attempts: 3
+       condition: on-failure       
+     update_config:
+       parallelism: 1
+       delay: 10s
+
+
+  actix:
+    image: actix
+    restart: unless-stopped
+    build:
+      context: ./apps/otherlangs/rust/actix-app
+      #args:
+      #  - GOFILE=/
+      dockerfile: ../../../../dockers/rust/Dockerfile
+    # env_file:
+    #   - ./.env
+    #   # настройки приложения
+    #   - ./apps/.env
+    # command: /bin/sh -c "cargo build --release && target/release/superapp"
+    #command: /bin/sh -c "target/release/superapp"
+    #command: /bin/sh -c "cargo run"
+    ports:
+      - "3200:3200"
+    volumes:
+      - ./apps/otherlangs/rust/actix-app/src:/usr/src/superapp/src
+      - ./apps/otherlangs/rust/actix-app/Cargo.toml:/usr/src/superapp/Cargo.toml
+      #- ./pkg:/go/pkg/
+      #- ./apps/otherlangs/rust/warp-app:/usr/src/superapp
+    # depends_on:
+    #   - balancer_redis
+    #environment:
+    #   - PORT=5005
+#     networks:
+#       - app-network
+#     #network_mode: host
+    deploy:
+     replicas: 1
+     restart_policy:
+       max_attempts: 3
+       condition: on-failure       
+     update_config:
+       parallelism: 1
+       delay: 10s
+
+  test_nginx_balancer:
+    image: swarm_nginx_balancer
+    #image: nginx:1.21.6-perl
+    #image: nginx:1.23.2-perl
+    #image: nginx:1.23.2-alpine-perl
+    image: nginx:1.23.2-alpine
+    restart: unless-stopped
+    volumes:
+      - ./dockers/nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./dockers/nginx/conf.d:/etc/nginx/conf.d
+      # - ./dockers/nginx/ssl:/etc/nginx/ssl
+      # - ./logs:/var/log/nginx
+    tmpfs:
+      - /var/cache/nginx
+      - /tmp
+    ports:
+      - "80:80"
+      - "443:443"
+    network_mode: host
+    # deploy:
+    #   replicas: 5
+    #   restart_policy:
+    #     max_attempts: 3
+    #     condition: on-failure       
+    #   update_config:
+    #     parallelism: 5
+    #     delay: 10s
+    #   resources:
+    #     limits:
+    #       memory: 400m
+#       resources:
+#         limits:
+#           cpus: '8'
+#           memory: 2048M
+#         reservations:
+#           cpus: '3'
+#           memory: 1024M
+# # --compatibility up -d
+#  docker run --gpus 'all,capabilities=utility' --rm ubuntu nvidia-smi

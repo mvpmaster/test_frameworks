@@ -1,0 +1,79 @@
+version: "3"
+services:
+
+services:
+
+  # fiber:
+  #   container_name: fiber
+  #   restart: unless-stopped
+  #   build:
+  #     context: ./apps/otherlangs/go/fiber/superapp
+  #     args:
+  #       - GOFILE=cmd/
+  #     dockerfile: ../../../../../dockers/go/Dockerfile
+  #   # env_file:
+  #   #   - ./.env
+  #   #   # настройки приложения
+  #   #   - ./apps/.env
+  #   command: /bin/sh -c "go build -mod=readonly -o bin/server ./cmd && ./bin/server"
+  #   ports:
+  #     - "3000:3000"
+  #   volumes:
+  #     #- ./pkg:/go/pkg/
+  #     - ./apps/otherlangs/go/fiber/superapp:/superapp
+  #   # depends_on:
+  #   #   - test_redis
+  #   #environment:
+  #   #   - PORT=5005
+  #   networks:
+  #     - app-network
+  #   # network_mode: host
+
+  # actix:
+  #   container_name: actix
+  #   restart: unless-stopped
+  #   build:
+  #     context: ./apps/otherlangs/rust/actix-app
+  #     #args:
+  #     #  - GOFILE=/
+  #     dockerfile: ../../../../dockers/rust/Dockerfile
+  #   # env_file:
+  #   #   - ./.env
+  #   #   # настройки приложения
+  #   #   - ./apps/.env
+  #   command: /bin/sh -c "cargo build --release && target/release/superapp"
+  #   #command: /bin/sh -c "target/release/superapp"
+  #   #command: /bin/sh -c "cargo run"
+  #   ports:
+  #     - "3200:3200"
+  #   volumes:
+  #     - ./apps/otherlangs/rust/actix-app/src:/usr/src/superapp/src
+  #     - ./apps/otherlangs/rust/actix-app/Cargo.toml:/usr/src/superapp/Cargo.toml
+  #     #- ./pkg:/go/pkg/
+  #     #- ./apps/otherlangs/rust/warp-app:/usr/src/superapp
+  #   # depends_on:
+  #   #   - balancer_redis
+  #   #environment:
+  #   #   - PORT=5005
+  #   networks:
+  #     - app-network
+  #   #network_mode: host
+
+  haproxy:
+    image: "haproxy:2.2-alpine"
+    # ports:
+    #   - 80:80
+    #   - 443:443
+    volumes:
+      - ./dockers/haproxy/haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg
+      #- ./cert.pem:/etc/ssl/certs/site.pem
+    network_mode: host
+    # depends_on:
+    #   - actix
+    #   - fiber
+    # networks:
+    #   - app-network
+
+networks:
+  app-network:
+    driver: bridge

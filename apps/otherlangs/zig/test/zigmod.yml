@@ -1,0 +1,6 @@
+id: vr3e8v9rahoo7t87opi99vjod2w4jaogms8vp246l5co94z9
+name: test
+license: 1
+description: 1
+root_dependencies:
+  - src: git https://github.com/Vexu/routez

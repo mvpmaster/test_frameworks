@@ -1,0 +1,46 @@
+version: '3.1'
+
+services:
+
+  swarm_test_rocket_api:
+    image: swarm_test_rocket_api
+    restart: unless-stopped
+    build:
+      context: ./apps/otherlangs/rust/rocket-app
+      #args:
+      #  - GOFILE=/
+      dockerfile: ../../../../dockers/rust/Dockerfile_rocket
+    # env_file:
+    #   - ./.env
+    #   # настройки приложения
+    #   - ./apps/.env
+    # command: /bin/sh -c "cargo build --release && target/release/superapp"
+    #command: /bin/sh -c "target/release/superapp"
+    #command: /bin/sh -c "cargo run"
+    ports:
+      - "3200:3200"
+    volumes:
+      - ./apps/otherlangs/rust/rocket-app/src:/usr/src/superapp/src
+      - ./apps/otherlangs/rust/rocket-app/Cargo.toml:/usr/src/superapp/Cargo.toml
+      - ./apps/otherlangs/rust/rocket-app/Rocket.toml:/usr/src/superapp/Rocket.toml
+      #- ./pkg:/go/pkg/
+      #- ./apps/otherlangs/rust/warp-app:/usr/src/superapp
+    # depends_on:
+    #   - balancer_redis
+    #environment:
+    #   - PORT=5005
+#     networks:
+#       - app-network
+#     #network_mode: host
+    deploy:
+     replicas: 2
+     restart_policy:
+       max_attempts: 3
+       condition: on-failure       
+     update_config:
+       parallelism: 2
+       delay: 10s
+
+# networks:
+#   app-network:
+#     driver: bridge

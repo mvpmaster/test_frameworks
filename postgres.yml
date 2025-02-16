@@ -1,0 +1,78 @@
+version: '3'
+services:
+
+
+  transactions_postgres:
+    container_name: transactions_postgres
+    hostname: postgres
+    image: postgres:14-alpine
+    command: 
+      - postgres
+      - "-c"
+      - "max_connections=2400"
+      # повышает производительность, оптимально >=256MB
+      - "-c"
+      - "shared_buffers=256MB"
+      - "-c"
+      - "temp_buffers=10MB"
+      # - "-c"
+      # - "effective_cache_size=2GB"
+      # - "-c"
+      # - "work_mem=1GB"
+      # повышает производительность, оптимально >=1GB
+      - "-c"
+      - "maintenance_work_mem=1GB"
+      # - "-c"
+      # - "max_stack_depth=8MB"
+      - "-c"
+      - "random_page_cost=0.1"
+      - "-c"
+      - "seq_page_cost=01"
+      - "-c"
+      - "checkpoint_completion_target=0.9"
+      # - "-c"
+      # - "log_min_duration_statement=200ms"
+      # - "-c"
+      # - "idle_in_transaction_session_timeout=10s"
+      # - "-c"
+      # - "lock_timeout=1s"
+      # - "-c"
+      # - "statement_timeout=60s"
+    restart: unless-stopped
+    env_file:
+      - ../.env
+      - ./app/.env
+    environment:
+    #  POSTGRES_USER: root
+    #  POSTGRES_PASSWORD: 12345678
+      POSTGRES_DB: transactions
+    volumes:
+      #- dockers/postgres/postgresql.conf:/etc/postgresql/postgresql.conf
+      - transactions_postgres:/var/lib/postgresql/data
+      - ./migrations/01_create_initial_tables.up.sql:/docker-entrypoint-initdb.d/migration.sql
+    #env_file:
+    #  - services/postgres/.envfile
+    ports:
+      - "5517:5432"
+    networks:
+      - app-network
+
+
+
+networks:
+  app-network:
+    driver: bridge
+    #external: true
+# networks:
+#   cashback-network:
+#     external:
+#       name: cashback_app-network
+#   referals-network:
+#     external:
+#       name: cashback_referals_app-network
+#   auth-network:
+#     external:
+#       name: auth_app-network
+volumes:
+  transactions_postgres:
+    driver: local
